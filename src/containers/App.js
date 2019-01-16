@@ -5,15 +5,37 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: '1', name: 'Jignesh', age: '28' },
-      { id: '2', name: 'Anavar', age: '26' },
-      { id: '3', name: 'Jigar', age: '27' }
-    ],
-    username: '',
-    showPersons: false
-  };
+  constructor(props) {
+    super(props);
+    console.log('[app.js] inside constuctor ', props);
+    this.state = {
+      persons: [
+        { id: '1', name: 'Jignesh', age: '28' },
+        { id: '2', name: 'Anavar', age: '26' },
+        { id: '3', name: 'Jigar', age: '27' }
+      ],
+      username: '',
+      showPersons: false
+    };
+  }
+
+  componentWillMount() {
+    console.log('[app.js] inside  componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[app.js] inside  componentDidMount()');
+  }
+
+  // state = {
+  //   persons: [
+  //     { id: '1', name: 'Jignesh', age: '28' },
+  //     { id: '2', name: 'Anavar', age: '26' },
+  //     { id: '3', name: 'Jigar', age: '27' }
+  //   ],
+  //   username: '',
+  //   showPersons: false
+  // };
 
   usernameChangedHandler = event => {
     this.setState({ username: event.target.value });
@@ -50,6 +72,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('[app.js] inside  render');
     let persons = null;
     if (this.state.showPersons) {
       persons = (
